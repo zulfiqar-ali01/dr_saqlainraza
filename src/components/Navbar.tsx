@@ -112,7 +112,7 @@ export default function Navbar() {
               role="dialog"
               aria-modal="true"
               aria-label="Site navigation"
-              className="absolute left-0 right-0 top-full z-50 max-h-[min(70vh,calc(100dvh-4.5rem))] overflow-y-auto border-b border-slate-200 bg-white/98 shadow-xl backdrop-blur-xl dark:border-slate-700 dark:bg-slate-900/98 md:hidden"
+              className=" bg-slate-100 dark:bg-slate-900 absolute left-0 right-0 top-full z-50 max-h-[min(70vh,calc(100dvh-4.5rem))] overflow-y-auto border-b border-slate-200 bg-white/98 shadow-xl backdrop-blur-xl dark:border-slate-700 dark:bg-slate-900/98 md:hidden"
             >
               <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-6">
                 {NAV_LINKS.map(({ href, label }) => (
