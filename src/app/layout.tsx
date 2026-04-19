@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from "next-themes";
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
+
 
 /** Production canonical URL — used when `VERCEL_ENV=production` or for local prod builds. */
 const CANONICAL_SITE = 'https://dr-saqlainraza.vercel.app';
@@ -332,25 +334,33 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              jsonLdPerson,
-              jsonLdOrganization,
-              jsonLdWebsite,
-              jsonLdBreadcrumb,
-            ]),
-          }}
-          suppressHydrationWarning
-        />
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify([
+                jsonLdPerson,
+                jsonLdOrganization,
+                jsonLdWebsite,
+                jsonLdBreadcrumb,
+              ]),
+            }}
+          />
       </head>
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+
+      <body className={`${geist.className} ${geistMono.className} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }
