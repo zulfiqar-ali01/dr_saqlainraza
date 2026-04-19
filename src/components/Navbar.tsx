@@ -24,12 +24,19 @@ export default function Navbar() {
           Hire me
         </a>
       </div>
-      <button className="md:hidden text-slate-900 dark:text-white focus:outline-none p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-        <span className="sr-only">Open menu</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
+      <div className="flex md:hidden items-center gap-2">
+        <ThemeToggle />
+        <button
+          type="button"
+          className="text-slate-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 p-2 bg-slate-100 dark:bg-slate-800 rounded-lg"
+          aria-label="Open menu"
+        >
+          <span className="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
     </nav>
   );
 }
