@@ -3,9 +3,25 @@ import React from 'react';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+/** Production canonical URL — used when `VERCEL_ENV=production` or for local prod builds. */
+const CANONICAL_SITE = 'https://dr-saqlainraza.vercel.app';
+
+function resolveSiteUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '');
+  if (fromEnv) return fromEnv;
+  if (process.env.VERCEL_ENV === 'production') return CANONICAL_SITE;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  if (process.env.NODE_ENV === 'development') return 'http://localhost:3000';
+  return CANONICAL_SITE;
+}
+
+const siteUrl = resolveSiteUrl();
+
+const profileSameAs = [
+  'https://www.linkedin.com/search/results/all/?keywords=Saqlain%20Raza',
+  'https://www.researchgate.net/search/publication?q=Saqlain+Raza',
+  'https://scholar.google.com/citations?user=aDTbV9oAAAAJ&hl=en',
+] as const;
 
 const titleDefault = 'Dr. Saqlain Raza';
 const titleTemplate = '%s | Dr. Saqlain Raza';
@@ -66,15 +82,23 @@ const jsonLdPerson = {
     'Natural language processing',
   ],
   knowsLanguage: ['English', 'French', 'Urdu', 'Arabic'],
+  sameAs: [...profileSameAs],
 };
 
 const jsonLdWebsite = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
   name: 'Dr. Saqlain Raza — Portfolio',
   description,
   url: siteUrl,
   inLanguage: 'en',
+  publisher: { '@id': `${siteUrl}/#person` },
+};
+
+const jsonLdPersonWithId = {
+  ...jsonLdPerson,
+  '@id': `${siteUrl}/#person`,
 };
 
 export const metadata: Metadata = {
@@ -96,6 +120,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  applicationName: 'Dr. Saqlain Raza',
+  referrer: 'origin-when-cross-origin',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -103,11 +129,18 @@ export const metadata: Metadata = {
     siteName: 'Dr. Saqlain Raza',
     title: `${titleDefault} | Applied Statistics & Data Science`,
     description,
+    images: [
+      {
+        url: '/profile.jpg',
+        alt: 'Dr. Saqlain Raza',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${titleDefault} | Applied Statistics & Data Science`,
     description,
+    images: ['/profile.jpg'],
   },
   robots: {
     index: true,
@@ -130,7 +163,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([jsonLdPerson, jsonLdWebsite]),
+            __html: JSON.stringify([jsonLdPersonWithId, jsonLdWebsite]),
           }}
         />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
