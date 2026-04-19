@@ -53,8 +53,6 @@ export default function ResearchAreas() {
               <ul className="space-y-3">
                 {area.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-600 dark:text-slate-300">
-                    cd /home/sadaqat/p/saqlain-portfolio
-                    git push -u origin main
                     <span className={`w-1.5 h-1.5 rounded-full ${area.dotClass} mt-2 shrink-0`}></span>
                     <span className="leading-snug">{item}</span>
                   </li>
