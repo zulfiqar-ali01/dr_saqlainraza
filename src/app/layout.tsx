@@ -117,6 +117,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    google: 'WXTKqKpXA1a_Cwi2FQ51vzITixd8hRp6xCTF6lIFJOM',
+  },
   category: 'science',
 };
 
