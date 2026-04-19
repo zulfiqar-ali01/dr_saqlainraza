@@ -60,8 +60,8 @@ export default function Navbar() {
             <ThemeToggle />
             <div className="flex gap-3 border-r border-slate-200 px-4 dark:border-slate-700">
               <a
-                href="https://orcid.org/"
-                target="_blank"
+                href="https://orcid.org/0000-0002-9899-5653"
+                target="0000-0002-9899-5653"
                 rel="noopener noreferrer"
                 className="font-bold text-slate-400 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
               >
@@ -127,8 +127,8 @@ export default function Navbar() {
                 ))}
                 <div className="mt-4 flex gap-4 border-t border-slate-200 pt-4 dark:border-slate-700">
                   <a
-                    href="https://orcid.org/"
-                    target="_blank"
+                    href="https://orcid.org/0000-0002-9899-5653"
+                    target="0000-0002-9899-5653"
                     rel="noopener noreferrer"
                     onClick={close}
                     className="text-sm font-bold text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
