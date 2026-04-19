@@ -1,1 +1,4 @@
-node_modules/\n.next/\n.DS_Store\n*.env*\n
+node_modules/
+.next/
+.DS_Store
+*.env*

@@ -3,7 +3,7 @@ import { BarChart3, Binary, Workflow, BrainCircuit } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-slate-900 text-white relative flex flex-col items-center">
+    <section id="about" className="py-24 px-6 bg-slate-900 dark:bg-slate-100 text-white relative flex flex-col items-center">
       {/* Decorative blurred lights */}
       <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[20rem] h-[20rem] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>

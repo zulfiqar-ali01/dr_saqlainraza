@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { BookOpen, ArrowRight, Activity, MapPin } from 'lucide-react';
+import { BookOpen, ArrowRight, Activity, MapPin, Download, Link } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -16,13 +16,13 @@ export default function Hero() {
             <Activity size={16} />
             <span>Assistant Professor, IAU KSA</span>
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-900 dark:bg-slate-100 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm">
             <MapPin size={16} />
             <span>PhD, INP-T France</span>
           </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">
           Bridging <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">
             Applied Statistics
@@ -30,18 +30,28 @@ export default function Hero() {
           & Data Science.
         </h1>
         
-        <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
           Dr. Saqlain Raza • Specializing in General Linear Models, Biostatistics, Epidemiology, Causality, and driving turnkey industrial data / NLP solutions. <br/>
           <span className="text-sm font-medium mt-2 inline-block">Fluent in English, French, Urdu, and Arabic.</span>
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-5 pt-4">
-          <a href="#experience" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-1">
-            View Experience <ArrowRight size={20} />
-          </a>
-          <a href="#publications" className="bg-white border-2 text-slate-800 border-slate-200 px-8 py-4 rounded-xl font-bold hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-1">
-            Explore Publications <BookOpen size={20} />
-          </a>
+        <div className="flex flex-col gap-5 pt-4">
+          <div className="flex flex-col sm:flex-row gap-5">
+            <a href="#experience" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-1">
+              View Experience <ArrowRight size={20} />
+            </a>
+            <a href="#publications" className="bg-white dark:bg-slate-900 dark:bg-slate-100 border-2 text-slate-800 dark:text-slate-100 border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold hover:border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:bg-slate-100 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-1">
+              Explore Publications <BookOpen size={20} />
+            </a>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-5">
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-xl shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:-translate-y-1">
+              Download CV <Download size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/saqlain-raza-phd-645a11b/" target="_blank" rel="noopener noreferrer" className="bg-[#0A66C2] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#084e96] transition-all flex items-center justify-center gap-2 shadow-xl shadow-[#0A66C2]/30 hover:shadow-[#0A66C2]/50 hover:-translate-y-1">
+              LinkedIn Profile <Link size={20} />
+            </a>
+          </div>
         </div>
       </div>
       

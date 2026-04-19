@@ -29,9 +29,9 @@ export default function Projects() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-3 mb-6">
             <span className="p-3 bg-blue-100 text-blue-600 rounded-xl"><FolderKanban size={28} /></span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Featured Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">Featured Projects</h2>
           </div>
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
             Real-world applications of applied statistics and data science driving decision-making in healthcare, industry, and public policy.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, idx) => (
-          <div key={idx} className="group relative bg-white border border-slate-200 rounded-3xl p-8 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 overflow-hidden flex flex-col h-full">
+          <div key={idx} className="group relative bg-white dark:bg-slate-900 dark:bg-slate-100 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 hover:border-slate-300 dark:border-slate-600 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 overflow-hidden flex flex-col h-full">
             
             {/* Abstract Background accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-0 group-hover:scale-110 transition-transform"></div>
@@ -51,17 +51,17 @@ export default function Projects() {
               <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-4 block">
                 {project.category}
               </span>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-blue-700 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-slate-600 mb-8 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                 {project.description}
               </p>
             </div>
             
-            <div className="z-10 mt-auto pt-6 border-t border-slate-100 flex flex-wrap gap-2">
+            <div className="z-10 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
               {project.tags.map(tag => (
-                <span key={tag} className="flex items-center gap-1.5 text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1.5 rounded-md">
+                <span key={tag} className="flex items-center gap-1.5 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-md">
                   <Code size={12} /> {tag}
                 </span>
               ))}

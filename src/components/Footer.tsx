@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 py-12 px-6 text-slate-400 text-sm border-t border-slate-800">
+    <footer className="bg-slate-900 dark:bg-slate-100 py-12 px-6 text-slate-400 text-sm border-t border-slate-800">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
           &copy; {new Date().getFullYear()} Dr. Saqlain Raza. All rights reserved.
